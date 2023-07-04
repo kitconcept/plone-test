@@ -7,7 +7,7 @@ ENV PIP_VERSION 22.0.4
 RUN <<EOT
     set -e
     apt update
-    buildDeps="build-essential ca-certificates curl dirmngr dpkg-dev gcc gnupg libatomic1 libbluetooth-dev libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev libjpeg62-turbo-dev libldap2-dev liblzma-dev libncursesw5-dev libopenjp2-7-dev libpcre3-dev libpq-dev libreadline-dev libsasl2-dev libsqlite3-dev libssl-dev libtiff5-dev libxml2-dev libxslt1-dev make netbase python3-dev tk-dev tzdata uuid-dev wget xz-utils zlib1g-dev"
+    buildDeps="build-essential ca-certificates curl dirmngr dpkg-dev gcc git gnupg libatomic1 libbluetooth-dev libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev libjpeg62-turbo-dev libldap2-dev liblzma-dev libncursesw5-dev libopenjp2-7-dev libpcre3-dev libpq-dev libreadline-dev libsasl2-dev libsqlite3-dev libssl-dev libtiff5-dev libxml2-dev libxslt1-dev make netbase openssh-client python3-dev tk-dev tzdata uuid-dev wget xz-utils zlib1g-dev"
     apt install -y --no-install-recommends $buildDeps
     curl -sL https://deb.nodesource.com/setup_12.x | bash -
     apt update
