@@ -8,10 +8,8 @@ on:
   workflow_dispatch:
 
 env:
-  PYTHON_VERSION: "3.11"
-  PLONE_VERSION: "6.0.6"
   IMAGE_NAME_PREFIX: ghcr.io/kitconcept/plone-test
-  IMAGE_NAME_SUFFIX: py37-node12
+  IMAGE_NAME_SUFFIX: py37-node14
 
 jobs:
 
@@ -50,7 +48,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           platforms: linux/amd64
-          file: plone-test/py37-node12/Dockerfile
+          file: plone-test/py37-node14/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
