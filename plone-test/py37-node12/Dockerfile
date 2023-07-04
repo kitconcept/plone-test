@@ -14,7 +14,7 @@ RUN <<EOT
     apt install -y python3.7-dev python3.7-venv python3-pip
     apt install -y nodejs
     npm install -g yarn
-    pip3 install -U "pip==${PIP_VERSION}}"
+    pip3 install -U "pip==${PIP_VERSION}"
     ln -s /usr/bin/pip3 /usr/bin/pip
 EOT
 
