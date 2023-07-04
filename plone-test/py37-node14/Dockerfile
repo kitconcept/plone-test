@@ -16,11 +16,15 @@ RUN <<EOT
     npm install -g yarn
     pip3 install -U "pip==${PIP_VERSION}"
     ln -s /usr/bin/pip3 /usr/bin/pip
+    mkdir -p /home/ci
+    useradd --system -m -d /home/ci -U -u 500 ci
 EOT
 
 LABEL maintainer="kitconcept GmbH <server@kitconcept.com>" \
       org.label-schema.name="ghcr.io/kitconcept/plone-test-py37-node14" \
       org.label-schema.description="Image with Python 3.7 and Node 14" \
       org.label-schema.vendor="kitconcept GmbH"
+
+USER ci
 
 CMD ["bash"]
