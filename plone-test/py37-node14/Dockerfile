@@ -18,7 +18,9 @@ RUN <<EOT
     ln -s /usr/bin/pip3 /usr/bin/pip
     mkdir -p /home/ci
     useradd --system -m -d /home/ci -U -u 500 ci
+    chown -R 500 /home/ci
 EOT
+
 
 LABEL maintainer="kitconcept GmbH <server@kitconcept.com>" \
       org.label-schema.name="ghcr.io/kitconcept/plone-test-py37-node14" \
