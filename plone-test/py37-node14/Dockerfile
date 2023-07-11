@@ -9,6 +9,8 @@ RUN <<EOT
     apt update
     buildDeps="build-essential ca-certificates curl default-jdk dirmngr dpkg-dev gcc git gnupg libatomic1 libbluetooth-dev libbz2-dev libc6-dev libdb-dev libexpat1-dev libffi-dev libgdbm-dev libjpeg62-turbo-dev libldap2-dev liblzma-dev libmagic1 libncursesw5-dev libopenjp2-7-dev libpcre3-dev libpq-dev libreadline-dev libsasl2-dev libsqlite3-dev libssl-dev libtiff5-dev libxml2-dev libxslt1-dev lsof make netbase openssh-client procps python3-dev tk-dev tzdata uuid-dev wget xvfb xz-utils zlib1g-dev"
     apt install -y --no-install-recommends $buildDeps
+    cypressDeps="libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb"
+    apt install -y --no-install-recommends $cypressDeps
     curl -sL https://deb.nodesource.com/setup_14.x | bash -
     apt update
     apt install -y python3.7-dev python3.7-venv python3-pip
