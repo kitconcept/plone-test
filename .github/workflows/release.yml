@@ -9,11 +9,15 @@ on:
 
 env:
   IMAGE_NAME_PREFIX: ghcr.io/kitconcept/plone-test
-  IMAGE_NAME_SUFFIX: py37-node14
 
 jobs:
 
   release:
+    strategy:
+      matrix:
+        IMAGE_NAME_SUFFIX:
+          - py37-node14
+          - py38-node16
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -26,7 +30,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ env.IMAGE_NAME_PREFIX }}-${{ env.IMAGE_NAME_SUFFIX }}
+            ${{ env.IMAGE_NAME_PREFIX }}-${{ matrix.IMAGE_NAME_SUFFIX }}
           flavor:
             latest=false
           tags: |
@@ -48,7 +52,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           platforms: linux/amd64
-          file: plone-test/py37-node14/Dockerfile
+          file: plone-test/${{ matrix.IMAGE_NAME_SUFFIX }}/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
